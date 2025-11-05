@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Smart Study Hub</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1048/1048953.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      color: #333;
+    }
+    header {
+      background-color: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 1.5em;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    main {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    form {
+      background: white;
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      background-color: #0ea5a4;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background-color: #0c8b8a;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    footer {
+      background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Smart Study Hub</h1>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <p style="text-align:center; color:#555;">
+      Join Smart Study Hub today and get instant access to your study materials!
+    </p>
+
+    <form onsubmit="return validateForm(event)">
+      <h2>Create Your Account</h2>
+      <label>Full Name</label>
+      <input id="name" type="text" placeholder="Enter your full name" required>
+
+      <label>Email</label>
+      <input id="email" type="email" placeholder="Enter your email" required>
+
+      <label>Password</label>
+      <input id="password" type="password" placeholder="Enter a password" required>
+
+      <button type="submit">Register</button>
+    </form>
+  </main>
+
+  <footer>
+    &copy; 2025 Smart Study Hub
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
