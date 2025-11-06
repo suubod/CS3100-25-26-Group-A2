@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Study Hub - Landing Page</title>
+  <title>Create Subject - Smart Study Hub</title>
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1048/1048953.png">
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
       background-color: #f0f4f8;
+      margin: 0;
       color: #333;
     }
+
     header {
       background-color: #1e3a8a;
       color: white;
-      padding: 1.5em;
       text-align: center;
+      padding: 1.5em;
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+
     nav a {
       color: white;
       margin: 0 10px;
@@ -28,6 +30,7 @@
       font-weight: bold;
       position: relative;
     }
+
     nav a::after {
       content: "";
       position: absolute;
@@ -38,32 +41,59 @@
       background-color: white;
       transition: width 0.3s ease;
     }
+
     nav a:hover::after {
       width: 100%;
     }
+
     main {
       text-align: center;
-      padding: 60px 20px;
+      padding: 40px 20px;
     }
-    main img {
-      margin-bottom: 20px;
+
+    form {
+      background: white;
+      max-width: 450px;
+      margin: 20px auto;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: none;
+    }
+
     button {
+      width: 100%;
       background-color: #0ea5a4;
       color: white;
       border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
+      padding: 12px;
+      border-radius: 5px;
       cursor: pointer;
+      margin-top: 15px;
       font-size: 16px;
       transition: all 0.3s ease;
-      margin: 10px;
     }
+
     button:hover {
       background-color: #0c8b8a;
       transform: scale(1.05);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
+
     footer {
       background: linear-gradient(90deg, #1e3a8a, #3b82f6);
       color: white;
@@ -85,22 +115,22 @@
   </header>
 
   <main>
-    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Student illustration" width="120">
-    <h2>Welcome to Smart Study Hub</h2>
-    <p>Access your study materials securely and easily!</p>
-    <p style="color:#555; font-style: italic;">
-      Your one-stop hub for learning resources, class notes, and study support.
-    </p>
-    
-    <!-- Existing Sign Up Button -->
-    <button onclick="location.href='register.html'">Sign Up</button>
-    
-    <!-- ✨ New Create Subject Button (added for U003 Task 2) -->
-    <button onclick="location.href='create-subject.html'">Create Subject</button>
+    <h2>Create a New Subject</h2>
+    <p style="color:#555;">Add a new subject to keep your study materials organised.</p>
+
+    <form>
+      <label for="subjectName">Subject Name</label>
+      <input type="text" id="subjectName" placeholder="Enter subject name" required>
+
+      <label for="subjectDesc">Description</label>
+      <textarea id="subjectDesc" rows="4" placeholder="Enter subject description"></textarea>
+
+      <button type="submit">Save Subject</button>
+    </form>
   </main>
 
   <footer>
-    &copy; 2025 Smart Study Hub. All rights reserved.
+    &copy; 2025 Smart Study Hub
   </footer>
 </body>
 </html>
