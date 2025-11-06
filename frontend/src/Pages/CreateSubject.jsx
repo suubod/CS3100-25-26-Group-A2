@@ -77,6 +77,24 @@ function CreateSubject() {
         />
 
         <button type="submit">Save Subject</button>
+        <br />
+        <button
+        type="button"
+        onClick={() => window.history.back()}
+        style={{
+          marginTop: "10px",
+          fontSize: "0.9rem",
+          padding: "10px 16px",
+          backgroundColor: "#ccc",
+          border: "none",
+          borderRadius: "10px",   
+          cursor: "pointer",
+          color: "#fff"
+        }}
+      >
+        Cancel
+      </button>
+
 
         {successMessage && (
           <p
