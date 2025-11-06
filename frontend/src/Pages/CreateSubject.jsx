@@ -1,0 +1,98 @@
+import React, { useState } from "react";
+import "../App.css";
+
+function CreateSubject() {
+  const [subjectName, setSubjectName] = useState("");
+  const [subjectDesc, setSubjectDesc] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!subjectName.trim()) {
+      alert("Please enter a subject name.");
+      return;
+    }
+
+    setSuccessMessage(`✅ Subject "${subjectName}" created successfully!`);
+    setSubjectName("");
+    setSubjectDesc("");
+  };
+
+  return (
+    <main>
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+        alt="Subject icon"
+        width="100"
+        style={{ marginBottom: "20px" }}
+      />
+      <h2>Create a New Subject</h2>
+      <p style={{ color: "#555" }}>
+        Add a new subject to keep your study materials organised.
+      </p>
+
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          background: "white",
+          maxWidth: "450px",
+          margin: "20px auto",
+          padding: "25px",
+          borderRadius: "10px",
+          boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+          textAlign: "left",
+        }}
+      >
+        <label style={{ fontWeight: "bold" }}>Subject Name</label>
+        <input
+          type="text"
+          placeholder="Enter subject name"
+          value={subjectName}
+          onChange={(e) => setSubjectName(e.target.value)}
+          required
+          style={{
+            width: "100%",
+            padding: "10px",
+            margin: "8px 0 15px",
+            border: "1px solid #ccc",
+            borderRadius: "5px",
+          }}
+        />
+
+        <label style={{ fontWeight: "bold" }}>Description</label>
+        <textarea
+          placeholder="Enter subject description"
+          value={subjectDesc}
+          onChange={(e) => setSubjectDesc(e.target.value)}
+          rows="4"
+          style={{
+            width: "100%",
+            padding: "10px",
+            border: "1px solid #ccc",
+            borderRadius: "5px",
+            resize: "none",
+            marginBottom: "15px",
+          }}
+        />
+
+        <button type="submit">Save Subject</button>
+
+        {successMessage && (
+          <p
+            style={{
+              marginTop: "15px",
+              color: "#2ecc71",
+              textAlign: "center",
+              fontWeight: "bold",
+            }}
+          >
+            {successMessage}
+          </p>
+        )}
+      </form>
+    </main>
+  );
+}
+
+export default CreateSubject;
