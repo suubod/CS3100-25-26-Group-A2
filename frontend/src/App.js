@@ -5,6 +5,7 @@ import Footer from "./Components/Footer";
 import Home from "./Pages/Home";
 import Register from "./Pages/Register";
 import CreateSubject from "./Pages/CreateSubject";
+import Dashboard from "./Pages/Dashboard"; 
 
 import "./App.css";
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/create-subject" element={<CreateSubject />} />
+        <Route path="/dashboard" element={<Dashboard />} /> 
       </Routes>
       <Footer />
     </Router>
