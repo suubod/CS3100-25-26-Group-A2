@@ -39,6 +39,6 @@ public class UserController {
         User savedUser = userRepository.save(user);
 
         //Response message output for backend confirmation DO NOT confuse with frontend output
-        return ResponseEntity.ok("User registered successfully, and welcome email sent!");
+        return ResponseEntity.ok("User registered successfully");
     }
 }
