@@ -6,18 +6,55 @@ function CreateSubject() {
   const [subjectDesc, setSubjectDesc] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-    if (!subjectName.trim()) {
-      alert("Please enter a subject name.");
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!subjectName.trim()) {
+    alert("Please enter a subject name.");
+    return;
+  }
+
+  setLoading(true);
+  setError("");
+  setSuccessMessage("");
+
+  try {
+    const res = await fetch("/api/subjects", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: subjectName.trim(),
+        description: (subjectDesc || "").trim(),
+      }),
+    });
+
+    if (res.status === 409) {
+      setError("A subject with this name already exists.");
       return;
     }
+    if (res.status === 400) {
+      setError("Name is required.");
+      return;
+    }
+    if (!res.ok) {
+      const txt = await res.text().catch(() => "");
+      throw new Error(txt || "Failed to create subject");
+    }
 
-    setSuccessMessage(`✅ Subject "${subjectName}" created successfully!`);
+    const data = await res.json().catch(() => ({}));
+    setSuccessMessage(`✅ Subject "${data.name || subjectName}" created successfully!`);
     setSubjectName("");
     setSubjectDesc("");
-  };
+  } catch (err) {
+    setError(err.message || "Something went wrong");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <main>
@@ -76,7 +113,9 @@ function CreateSubject() {
           }}
         />
 
-        <button type="submit">Save Subject</button>
+        <button type="submit" disabled={loading || !subjectName.trim()}>
+          {loading ? "Saving..." : "Save Subject"}
+        </button>
         <br />
         <button
         type="button"
@@ -95,6 +134,18 @@ function CreateSubject() {
         Cancel
       </button>
 
+        {error && (
+          <p
+            style={{
+              marginTop: "10px",
+              color: "#e11d48",
+              textAlign: "center",
+              fontWeight: "bold",
+            }}
+          >
+            {error}
+          </p>
+        )}
 
         {successMessage && (
           <p
