@@ -8,6 +8,7 @@ import CreateSubject from "./Pages/CreateSubject";
 import Subjects from "./Subjects.jsx";
 import Dashboard from "./Pages/Dashboard";
 import "./App.css";
+import AddTask from "./Pages/AddTask";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/create-subject" element={<CreateSubject />} />
         <Route path="/subjects" element={<Subjects />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/add-task" element={<AddTask />} />
       </Routes>
       <Footer />
     </Router>

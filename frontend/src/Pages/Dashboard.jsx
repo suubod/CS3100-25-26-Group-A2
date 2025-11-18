@@ -5,7 +5,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   const handleAddSubject = () => navigate("/create-subject");
-  const handleAddTask = () => console.log("Add Task clicked");
+  const handleAddTask = () => navigate("/add-task");
   const handleProgress = () => console.log("Progress clicked");
 
   const progressPct = 62;

@@ -78,6 +78,8 @@ function Header() {
         <Link to="/dashboard" style={linkStyle}>
           Dashboard
         </Link>
+      
+        
       </nav>
     </header>
   );

@@ -11,4 +11,4 @@ Run the app:
 ```bash
 cd frontend
 npm install
-npm start
+npm startgit
